@@ -1,23 +1,10 @@
-import RPi.GPIO as GPIO
-import time
+from gpiozero import LED
+from time import sleep
 
-GPIO.setmode(GPIO.BCM)
-GPIO.setwarnings(False)
-GPIO.setup(22,GPIO.OUT)
+led = LED(22)
 
-# While loop
 while True:
-        # set GPIO22 pin to HIGH
-        GPIO.output(22,GPIO.HIGH)
-        # show message to Terminal
-        print ("LED is ON")
-        # pause for one second
-        time.sleep(1)
-
-
-        # set GPIO22 pin to HIGH
-        GPIO.output(22,GPIO.LOW)
-        # show message to Terminal
-        print ("LED is OFF")
-        # pause for one second
-        time.sleep(1)
+    led.on()
+    sleep(1)
+    led.off()
+    sleep(1)
