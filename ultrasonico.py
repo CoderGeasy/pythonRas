@@ -18,7 +18,7 @@ try:
 
         # Ponemos en bajo el pin TRIG y después esperamos 0.5 seg para que el transductor se estabilice
         GPIO.output(TRIG, GPIO.LOW)
-        time.sleep(0.5)
+        time.sleep(1)
 
         #Ponemos en alto el pin TRIG esperamos 10 uS antes de ponerlo en bajo
         GPIO.output(TRIG, GPIO.HIGH)
