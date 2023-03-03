@@ -21,7 +21,7 @@ def main():
             if opcion == 1:
                 GPIO.output(pin_led, GPIO.HIGH)
                 time.sleep(1) # Espera 1 segundo
-            elif opcion == "2":
+            elif opcion == 2:
                 GPIO.output(pin_led, GPIO.LOW)
                 time.sleep(1) # Espera 1 segundo
         elif opcion == 3:
