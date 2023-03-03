@@ -20,7 +20,6 @@ def onOff():
     else:
         print("Opcion incorrecta")
         onOff()
-
 try:
     print("entró")
     onOff()
@@ -28,6 +27,3 @@ except KeyboardInterrupt:
     print("\nInterrupcion por teclado")
 except:
     print("Otra interrupcion")
-finally:
-    GPIO.cleanup()
-    print("GPIO.cleanup() ejecutado")
