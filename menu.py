@@ -1,19 +1,20 @@
 import os
 
 def menu():
-    print("1. Sensor de temperatura")
-    print("2. Sensor ultrasonico")
-    print("3. LED")
+    opciones = {
+        "1": ("Sensor de temperatura", "temperatura.py"),
+        "2": ("Sensor ultrasonico", "ultrasonico.py"),
+        "3": ("LED", "led.py")
+    }
     
-    opcion = input("Elige una opcion: ")
+    print("Opciones:")
+    for clave, valor in opciones.items():
+        print(f"{clave}. {valor[0]}")
+    
+    opcion = input("Elige una opción (1-3): ")
 
-    if opcion == "1":               
-        os.system("python3 temperatura.py")
-    elif opcion == "2":
-        os.system("python3 ultrasonico.py")
-    elif opcion == "3":
-        os.system("python3 led.py")
+    if opcion in opciones:
+        os.system(f"python3 {opciones[opcion][1]}")
     else:
-        print("Opcion incorrecta")
+        print("Opción incorrecta")
         menu()
-    
