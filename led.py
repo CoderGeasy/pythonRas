@@ -8,7 +8,7 @@ GPIO.setup(pin_led, GPIO.OUT)
 
 print("hola")
 
-def onOff():
+def main():
     i = 0
      
     while i == 0:
@@ -32,7 +32,7 @@ def onOff():
             opcion = int(input("Opcion: "))
     try:
         print("entró")
-        onOff()
+        main()
     except KeyboardInterrupt:
         print("\nInterrupcion por teclado")
     except:
