@@ -30,12 +30,16 @@ def main():
         else:
             print("Opcion incorrecta")
             opcion = int(input("Opcion: "))
-    try:
-        print("entró")
-        main()
-    except KeyboardInterrupt:
-        print("\nInterrupcion por teclado")
-    except:
-        print("Otra interrupcion")
-    finally:
-        GPIO.cleanup()
+try:
+    print("entró")
+    main()
+except KeyboardInterrupt:
+    print("\nInterrupcion por teclado")
+except:
+    print("Otra interrupcion")
+finally:
+    GPIO.cleanup()
+
+# Llama a la funcion principal
+if __name__ == "__main__":
+    main()
