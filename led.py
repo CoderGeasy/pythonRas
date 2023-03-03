@@ -9,6 +9,7 @@ GPIO.setup(pin_led, GPIO.OUT) #Configuramos el GPIO18 como salida
 print("hola")
 #Contenemos el código principal en una estructura try para limpiar los GPIO al terminar o presentarse un error
 try:
+    print("entró")
     def onOff():
         print ("Presiona 1 para encender el LED")
         print("Presiona 2 para apagarlo")
