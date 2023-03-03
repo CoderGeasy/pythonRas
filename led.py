@@ -6,6 +6,7 @@ pin_led = 22  #Variable que contiene el pin(GPIO.BCM) al cual conectamos la señ
 GPIO.setmode(GPIO.BCM)   #Establecemos el modo según el cual nos refiriremos a los GPIO de nuestra RPi            
 GPIO.setup(pin_led, GPIO.OUT) #Configuramos el GPIO18 como salida
 
+print("hola")
 #Contenemos el código principal en una estructura try para limpiar los GPIO al terminar o presentarse un error
 try:
     def onOff():
@@ -13,7 +14,7 @@ try:
         print("Presiona 2 para apagarlo")
         
         opcion = input("Opcion: ")  #Leemos la opcion del usuario
-        if opcion == "1":   #Implementamos un loop infinito
+        if opcion == "1":  
             GPIO.output( pin_led , GPIO.HIGH )
         elif opcion == "2":
             GPIO.output( pin_led , GPIO.LOW )
