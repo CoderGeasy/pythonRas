@@ -1,4 +1,6 @@
 import os
+from temperatura import main as temperatura
+from ultrasonico import main as ultrasonico
 
 def menu():
     opciones = {
