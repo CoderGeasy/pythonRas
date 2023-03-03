@@ -9,29 +9,33 @@ GPIO.setup(pin_led, GPIO.OUT)
 print("hola")
 
 def onOff():
-    opcion = 0
-    print ("Presiona 1 para encender el LED")
-    print("Presiona 2 para apagar el LED")
-    opcion = input("Opcion: ")
-    
-    while opcion == 1 or opcion == 2:
-        
-        if opcion == "1":  
-            GPIO.output(pin_led, GPIO.HIGH)
-            time.sleep(1) # Espera 1 segundo
-        elif opcion == "2":
-            GPIO.output(pin_led, GPIO.LOW)
-            time.sleep(1) # Espera 1 segundo
+    i = 0
+     
+    while i == 0:
+        print("Menú")
+        print("Presiona 1 para encender el LED")
+        print("Presiona 2 para apagar el LED")
+        print("Presiona 3 para salir")
+        opcion = int(input("Opcion: "))
+        if opcion in [1, 2]:  
+            if opcion == 1:
+                GPIO.output(pin_led, GPIO.HIGH)
+                time.sleep(1) # Espera 1 segundo
+            elif opcion == "2":
+                GPIO.output(pin_led, GPIO.LOW)
+                time.sleep(1) # Espera 1 segundo
+        elif opcion == 3:
+            print("Saliendo...")
+            i = 1
         else:
             print("Opcion incorrecta")
-            onOff()
-
-try:
-    print("entró")
-    onOff()
-except KeyboardInterrupt:
-    print("\nInterrupcion por teclado")
-except:
-    print("Otra interrupcion")
-finally:
-    GPIO.cleanup()
+            opcion = int(input("Opcion: "))
+    try:
+        print("entró")
+        onOff()
+    except KeyboardInterrupt:
+        print("\nInterrupcion por teclado")
+    except:
+        print("Otra interrupcion")
+    finally:
+        GPIO.cleanup()
