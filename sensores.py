@@ -1,12 +1,13 @@
+import RPi.GPIO as GPIO
+import time
 from led import main as led
 from temperatura import main as temperatura
 from ultrasonico import main as ultrasonico
 
-import RPi.GPIO as GPIO
-import time
-
 class Sensores:
-    def __init__(self, key):
+    def __init__(self):
+        # Pedir la clave al usuario
+        key = input("Ingresa la clave del sensor que quieres usar (led, ultrasonico o temperatura): ")
         # Configurar pines según la clave
         if key == "led":
             self.sensor = Led()
@@ -14,6 +15,8 @@ class Sensores:
             self.sensor = Ultrasonico()
         elif key == "temperatura":
             self.sensor = Temperatura()
+        else:
+            raise ValueError("Clave inválida")
 
     def leer(self):
         return self.sensor.leer()
@@ -58,3 +61,8 @@ class Temperatura:
     def leer(self):
         humidity = GPIO.input(self.hum_pin)
         return humidity
+
+if __name__ == '__main__':
+    sensor = Sensores()
+    valor = sensor.leer()
+    print("El valor del sensor es:", valor)
