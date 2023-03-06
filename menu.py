@@ -1,12 +1,9 @@
 import os
+from led import main as led
 from temperatura import main as temperatura
 from ultrasonico import main as ultrasonico
-from led import main as led
 
 if __name__ == '__main__':
-    menuTemp = temperatura()
-    menuUltra = ultrasonico()
-    menuLed = led()
     i = 0
     while i == 0:
         print("Menu")
@@ -18,15 +15,15 @@ if __name__ == '__main__':
         opcion = int(input("Opcion: "))
         if opcion in [1, 2, 3]:
             if opcion == 1:
-                menuTemp.main()
+                temperatura.main()
             elif opcion == 2:
-                menuUltra.main()
+                ultrasonico.main()
             elif opcion == 3:
-                menuLed.main()
-        elif opcion == "4":
+                led.main()
+        elif opcion == 4:
             print("Saliendo...")
             i = 1
         else:
             print("Opción incorrecta")
-            print ("Elige una opción")
+            print("Elige una opción")
             opcion = int(input())
