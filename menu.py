@@ -1,22 +1,32 @@
 import os
 from temperatura import main as temperatura
 from ultrasonico import main as ultrasonico
+from led import main as led
 
-def menu():
-    opciones = {
-        "1": ("Sensor de temperatura", "temperatura.py"),
-        "2": ("Sensor ultrasonico", "ultrasonico.py"),
-        "3": ("LED", "led.py")
-    }
-    
-    print("Opciones:")
-    for clave, valor in opciones.items():
-        print(f"{clave}. {valor[0]}")
-    
-    opcion = input("Elige una opción (1-3): ")
-
-    if opcion in opciones:
-        os.system(f"python3 {opciones[opcion][1]}")
-    else:
-        print("Opción incorrecta")
-        menu()
+if __name__ == '__main__':
+    menuTemp = temperatura()
+    menuUltra = ultrasonico()
+    menuLed = led()
+    i = 0
+    while i == 0:
+        print("Menu")
+        print("----------------")
+        print("1. Sensor de temperatura")
+        print("2. Sensor ultrasonico")
+        print("3. LED")
+        print("4. Salir")
+        opcion = int(input("Opcion: "))
+        if opcion in [1, 2, 3]:
+            if opcion == 1:
+                menuTemp.main()
+            elif opcion == 2:
+                menuUltra.main()
+            elif opcion == 3:
+                menuLed.main()
+        elif opcion == "4":
+            print("Saliendo...")
+            i = 1
+        else:
+            print("Opción incorrecta")
+            print ("Elige una opción")
+            opcion = int(input())
