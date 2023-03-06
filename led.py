@@ -6,7 +6,6 @@ pin_led = 22
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(pin_led, GPIO.OUT)
 
-print("hola")
 
 def main():
     i = 0
@@ -31,7 +30,6 @@ def main():
             print("Opcion incorrecta")
             opcion = int(input("Opcion: "))
 try:
-    print("entró")
     main()
 except KeyboardInterrupt:
     print("\nInterrupcion por teclado")
