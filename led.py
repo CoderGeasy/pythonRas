@@ -6,7 +6,7 @@ pin_led = 22
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(pin_led, GPIO.OUT)
 
-
+##Hola
 def main():
     i = 0
      
