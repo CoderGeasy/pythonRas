@@ -64,6 +64,7 @@ def main():
             # Imprimimos resultado
             print("Distancia: %.2f cm" % distancia)
 
+            return "menu"
     finally:
         # Reiniciamos todos los canales de GPIO.
         GPIO.cleanup()

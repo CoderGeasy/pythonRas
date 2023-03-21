@@ -17,7 +17,8 @@ if __name__ == '__main__':
             if opcion == 1:
                 temperatura.main()
             elif opcion == 2:
-                ultrasonico.main()
+                while ultrasonico.main() != "menu":
+                    pass
             elif opcion == 3:
                 led.main()
         elif opcion == 4:
