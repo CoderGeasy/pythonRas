@@ -53,7 +53,7 @@ def main():
             #Insertamos en la base de datos
             conexion = ConexionMongoDB()
 
-            conexion.conectarBD()
+         
 
             datos = {
                 "distancia": distancia,
@@ -61,7 +61,7 @@ def main():
             }
 
             conexion.insertar("ultrasonico", datos)
-            conexion.cerrarConexion()
+
 
 
             # Imprimimos resultado
