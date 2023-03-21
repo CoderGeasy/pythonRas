@@ -36,7 +36,6 @@ def main():
             print("Opcion incorrecta")
             opcion = int(input("Opcion: "))
 
-
 # Llama a la funcion principal
 if __name__ == "__main__":
     main()

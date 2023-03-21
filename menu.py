@@ -3,8 +3,9 @@ import led
 import temperatura 
 import ultrasonico 
 
-def menu():
-    while True:
+if __name__ == '__main__':
+    i = 0
+    while i == 0:
         print("Menu")
         print("----------------")
         print("1. Sensor de temperatura")
@@ -15,23 +16,14 @@ def menu():
         if opcion in [1, 2, 3]:
             if opcion == 1:
                 temperatura.main()
-                return
             elif opcion == 2:
                 ultrasonico.main()
-                return
             elif opcion == 3:
                 led.main()
-                return
         elif opcion == 4:
             print("Saliendo...")
-            break
+            i = 1
         else:
             print("Opción incorrecta")
             print("Elige una opción")
             opcion = int(input())
-
-        # Pausa para que el usuario pueda leer el resultado
-        input("Presiona Enter para regresar al menú")
-        
-if __name__ == '__main__':
-    menu()
