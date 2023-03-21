@@ -2,7 +2,7 @@
 # Importamos la paquteria necesaria
 import RPi.GPIO as GPIO
 import time
-from conexion_mongodb import ConexionMongoDB
+from conexionMongoDB import ConexionMongoDB
 
 TRIG = 23 #Variable que contiene el GPIO al cual conectamos la señal TRIG del sensor
 ECHO = 24 #Variable que contiene el GPIO al cual conectamos la señal ECHO del sensor
