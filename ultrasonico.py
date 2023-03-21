@@ -2,6 +2,8 @@
 # Importamos la paquteria necesaria
 import RPi.GPIO as GPIO
 import time
+import pymongo
+import conexionMongoDB
 
 TRIG = 23 #Variable que contiene el GPIO al cual conectamos la señal TRIG del sensor
 ECHO = 24 #Variable que contiene el GPIO al cual conectamos la señal ECHO del sensor
@@ -48,6 +50,20 @@ def main():
 
             #Obtenemos la distancia considerando que la señal recorre dos veces la distancia a medir y que la velocidad del sonido es 343m/s
             distancia = (34300 * duracion) / 2
+            
+            #Insertamos en la base de datos
+            conexion = conexionMongoDB()
+
+            conexion.conectarBD()
+
+            datos = {
+                "distancia": distancia,
+                "fecha": time.strftime('%Y-%m-%d %H:%M:%S')
+            }
+
+            conexion.insertar("ultrasonico", datos)
+            conexion.cerrarConexion()
+
 
             # Imprimimos resultado
             print( "Distancia: %.2f cm" % distancia)
