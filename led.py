@@ -44,6 +44,3 @@ except:
 finally:
     GPIO.cleanup()
 
-# Llama a la funcion principal
-if __name__ == "__main__":
-    main()
