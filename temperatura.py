@@ -10,11 +10,10 @@ pin = 4
 # se debe descomentar la linea dependiendo del tipo de sensor (DHT11 o DHT22)
 #sensor = adafruit_dht.DHT11(pin)
 sensor = adafruit_dht.DHT11(pin)
-
+conexion = ConexionMongoDB()
+conexion.conectarBD()
 # Funcion principal
 def main():
-    conexion = ConexionMongoDB()
-
     # Ciclo principal infinito
     while True:
 
@@ -26,7 +25,7 @@ def main():
 
     		# Imprime en la consola las variables temperatura y humedad con un decimal
 
-            datos = {"temperatura": temperatura, "humedad": humedad}
+            datos = {"temperatura": temperatura, "humedad": humedad, "fecha": time.strftime('%Y-%m-%d %H:%M:%S')}
             conexion.insertar("temperatura", datos)
 
             print('Temperatura={0:0.1f} C  Humedad={1:0.1f}%'.format(temperatura, humedad))
