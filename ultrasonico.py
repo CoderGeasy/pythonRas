@@ -10,7 +10,8 @@ ECHO = 24 #Variable que contiene el GPIO al cual conectamos la señal ECHO del s
 GPIO.setmode(GPIO.BCM)     #Establecemos el modo según el cual nos refiriremos a los GPIO de nuestra RPi            
 GPIO.setup(TRIG, GPIO.OUT) #Configuramos el pin TRIG como una salida 
 GPIO.setup(ECHO, GPIO.IN)  #Configuramos el pin ECHO como una salida 
-
+conexion = ConexionMongoDB()
+conexion.conectarBD()
 
 #Contenemos el código principal en un aestructura try para limpiar los GPIO al terminar o presentarse un error
 def main():
@@ -51,8 +52,7 @@ def main():
             distancia = (34300 * duracion) / 2
             
             #Insertamos en la base de datos
-            conexion = ConexionMongoDB()
-            conexion.conectarBD()
+            
             datos = {
                 "distancia": distancia,
                 "fecha": time.strftime('%Y-%m-%d %H:%M:%S')
