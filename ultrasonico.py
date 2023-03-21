@@ -52,18 +52,12 @@ def main():
             
             #Insertamos en la base de datos
             conexion = ConexionMongoDB()
-
-         
-
+            conexion.conectarBD()
             datos = {
                 "distancia": distancia,
                 "fecha": time.strftime('%Y-%m-%d %H:%M:%S')
             }
-
             conexion.insertar("ultrasonico", datos)
-
-
-
             # Imprimimos resultado
             print( "Distancia: %.2f cm" % distancia)
 
