@@ -2,7 +2,7 @@
 # Importamos la paquteria necesaria
 import RPi.GPIO as GPIO
 import time
-import conexionMongoDB
+from conexion_mongodb import ConexionMongoDB
 
 TRIG = 23 #Variable que contiene el GPIO al cual conectamos la señal TRIG del sensor
 ECHO = 24 #Variable que contiene el GPIO al cual conectamos la señal ECHO del sensor
@@ -51,7 +51,7 @@ def main():
             distancia = (34300 * duracion) / 2
             
             #Insertamos en la base de datos
-            conexion = conexionMongoDB()
+            conexion = ConexionMongoDB()
 
             conexion.conectarBD()
 
