@@ -1,6 +1,7 @@
 from pymongo import MongoClient
 import pymongo
 
+
 class ConexionMongoDB:
     def __init__(self):
         self.db = ""
