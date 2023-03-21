@@ -1,7 +1,7 @@
 import os
-from led import main as led
-from temperatura import main as temperatura
-from ultrasonico import main as ultrasonico
+import led 
+import temperatura 
+import ultrasonico 
 
 if __name__ == '__main__':
     i = 0
