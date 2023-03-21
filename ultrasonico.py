@@ -2,7 +2,6 @@
 # Importamos la paquteria necesaria
 import RPi.GPIO as GPIO
 import time
-import pymongo
 import conexionMongoDB
 
 TRIG = 23 #Variable que contiene el GPIO al cual conectamos la señal TRIG del sensor
