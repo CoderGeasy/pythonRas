@@ -1,6 +1,7 @@
 import sys
 import time
 import adafruit_dht
+from conexionMongoDB import ConexionMongoDB
 
 # Configuracion del puerto GPIO al cual esta conectado  (GPIO 23)
 pin = 4
@@ -12,6 +13,8 @@ sensor = adafruit_dht.DHT11(pin)
 
 # Funcion principal
 def main():
+    conexion = ConexionMongoDB()
+
     # Ciclo principal infinito
     while True:
 
@@ -22,6 +25,10 @@ def main():
             temperatura = sensor.temperature
 
     		# Imprime en la consola las variables temperatura y humedad con un decimal
+
+            datos = {"temperatura": temperatura, "humedad": humedad}
+            conexion.insertar("temperatura", datos)
+
             print('Temperatura={0:0.1f} C  Humedad={1:0.1f}%'.format(temperatura, humedad))
 
         # Se ejecuta en caso de que falle alguna instruccion dentro del try
